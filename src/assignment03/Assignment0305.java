@@ -20,8 +20,6 @@ public class Assignment0305 {
     static int[] dx = {0, 1, 0, -1};
     static int[] dy = {1, 0, -1, 0};
 
-    static int[] head = {};
-
     public static void main(String[] args) throws IOException {
         String fileName = "input.txt";
         String filePath = "src/assignment03/" + fileName;
@@ -50,16 +48,20 @@ public class Assignment0305 {
 // 고려해 볼것 : head기준으로 직진, 우회전 살펴보는데, 안간곳 우선으로 전진
     static boolean findPath(int x, int y, int head){
         int turn = (head+1)%4;
-        System.out.printf("(%d, %d)\n", x,y);
+        System.out.printf("(%d, %d) / head:%d\n", x,y,head);
         if (x == endX && y == endY) {
             return true;
         }
         int nx = x + dx[head];
         int ny = y + dy[head];
 
-        if(nx < 0 || nx >= N || ny < 0 || ny >= N || maze[nx][ny] == WALL || maze[nx][ny] == BLOCKED) {
+        if(nx < 0 || nx >= N || ny < 0 || ny >= N) {
             return false;
         }
+        if (maze[nx][ny] != PATH) {
+            return false;
+        }
+        maze[x][y] = VISITED;
         if(findPath(x+dx[head], y+dy[head], head) || findPath(x, y, turn)) {
             return true;
         }

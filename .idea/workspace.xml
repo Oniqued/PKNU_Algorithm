@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd432442-42fa-460a-9e66-9f044de7c0bc" name="변경" comment="Assignment0303">
-      <change afterPath="$PROJECT_DIR$/src/assignment03/Assignment0305.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assignment03/input.txt" afterDir="false" />
+    <list default="true" id="fd432442-42fa-460a-9e66-9f044de7c0bc" name="변경" comment="Assignment0305">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment03/Assignment0303.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment03/Assignment0303.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment03/Assignment0305.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment03/Assignment0305.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +92,7 @@
       <workItem from="1679321727040" duration="20000" />
       <workItem from="1679484915476" duration="5631000" />
       <workItem from="1679653942996" duration="1453000" />
-      <workItem from="1679802117633" duration="17011000" />
+      <workItem from="1679802117633" duration="19706000" />
     </task>
     <task id="LOCAL-00001" summary="Assignment0301, Assignment0302 complete">
       <created>1679491551665</created>
@@ -111,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679659378897</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Assignment0305">
+      <created>1679819909098</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679819909098</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,7 +135,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Assignment0301, Assignment0302 complete" />
     <MESSAGE value="Assignment0303" />
-    <option name="LAST_COMMIT_MESSAGE" value="Assignment0303" />
+    <MESSAGE value="Assignment0305" />
+    <option name="LAST_COMMIT_MESSAGE" value="Assignment0305" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
