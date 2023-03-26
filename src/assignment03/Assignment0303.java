@@ -12,7 +12,7 @@ public class Assignment0303 {
     static void coloring(int i) {
         if (promising(i)) {
             if (i == n) {
-                graph[1...n] 출력;
+                //graph[1...n] 출력;
             }
             else { //다음 정점에 모든 색을 시도해본다
                 for (int color = 1; color <= m; color++) {
