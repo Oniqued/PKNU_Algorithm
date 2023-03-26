@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd432442-42fa-460a-9e66-9f044de7c0bc" name="변경" comment="Assignment0305">
+    <list default="true" id="fd432442-42fa-460a-9e66-9f044de7c0bc" name="변경" comment="Assignment0305 failed">
+      <change afterPath="$PROJECT_DIR$/src/assignment03/Assignment0304.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assignment03/input01.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment03/Assignment0305.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment03/Assignment0305.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +93,7 @@
       <workItem from="1679321727040" duration="20000" />
       <workItem from="1679484915476" duration="5631000" />
       <workItem from="1679653942996" duration="1453000" />
-      <workItem from="1679802117633" duration="19706000" />
+      <workItem from="1679802117633" duration="20285000" />
     </task>
     <task id="LOCAL-00001" summary="Assignment0301, Assignment0302 complete">
       <created>1679491551665</created>
@@ -115,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679819909098</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Assignment0305 failed">
+      <created>1679822612967</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679822612967</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +144,8 @@
     <MESSAGE value="Assignment0301, Assignment0302 complete" />
     <MESSAGE value="Assignment0303" />
     <MESSAGE value="Assignment0305" />
-    <option name="LAST_COMMIT_MESSAGE" value="Assignment0305" />
+    <MESSAGE value="Assignment0305 failed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Assignment0305 failed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
