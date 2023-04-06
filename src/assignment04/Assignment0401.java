@@ -1,6 +1,6 @@
 package assignment04;
 
-public class Assignment04 {
+public class Assignment0401 {
     static int[] data;
     public static void main(String[] args) {
         System.out.println("\t\t\tN=1000\tN=10000\tN=100000");
