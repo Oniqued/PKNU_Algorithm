@@ -1,19 +1,39 @@
 package assignment04;
 
+import java.util.Arrays;
+
 public class Assignment0401 {
     static int[] data;
     public static void main(String[] args) {
         System.out.println("\t\t\tN=1000\tN=10000\tN=100000");
-        insertionSort();
         bubbleSort();
         selectionSort();
+        insertionSort();
     }
 
     private static void rand(int N){
         data = new int[N];
         for (int i = 0; i < N; i++) {
-            data[i] = (int)Math.random() * N;
+            data[i] = (int)(Math.random() * N);
         }
+    }
+
+    private static void loopTime(){
+        double sum = 0;
+        int loop = 10;
+        System.out.print("Bubble\t");
+        for (int N = 1000; N <= 100000; N = N * 10) {
+            rand(N);
+            for (int testCase = 0; testCase < loop; testCase++) {
+                long startTime = System.currentTimeMillis();
+                //code here
+                long finishTime = System.currentTimeMillis();
+                long elapsedTime = finishTime - startTime;
+                sum += elapsedTime;
+            }
+            System.out.printf("\t%.3f", ((sum/loop)/1000.0));
+        }
+        System.out.println();
     }
 
     //버블 정렬
@@ -82,10 +102,14 @@ public class Assignment0401 {
                 int data[] = new int[N];
                 long startTime = System.currentTimeMillis();
                 //구현
-                for (int i = N-1; i >= 0; i--) {
-                    int index = (int)Math.random()*N;
-                    int j = i-1;
-
+                for (int i = 0; i < N; i++) {
+                    int index = (int)(Math.random()*N);
+                    int j = i - 1;
+                    while (i != 0 && j >= 0 && index < data[j]){
+                        data[j+1] = data[j];
+                        j--;
+                    }
+                    data[j+1] = index;
                 }
 
                 long finishTime = System.currentTimeMillis();
@@ -97,55 +121,7 @@ public class Assignment0401 {
         System.out.println();
     }
 
-    //합병 정렬
-    private void mergeSort(int[] arr, int l, int r) {
-        if (l < r) {
-            int m = (l + r) / 2;
-            mergeSort(arr, l, m);
-            mergeSort(arr, m + 1, r);
-            merge(arr, l, m, r);
-        }
-    }
 
-    private void merge(int[] arr, int l, int m, int r) {
-        int[] leftArr = new int[m - l + 1];
-        int[] rightArr = new int[r - m];
-
-        for (int i = 0; i < leftArr.length; i++) {
-            leftArr[i] = arr[l + i];
-        }
-
-        for (int i = 0; i < rightArr.length; i++) {
-            rightArr[i] = arr[m + i + 1];
-        }
-
-        int i = 0;
-        int j = 0;
-        int k = l;
-
-        while (i < leftArr.length && j < rightArr.length) {
-            if (leftArr[i] <= rightArr[j]) {
-                arr[k] = leftArr[i];
-                i++;
-            } else {
-                arr[k] = rightArr[j];
-                j++;
-            }
-            k++;
-        }
-
-        while (i < leftArr.length) {
-            arr[k] = leftArr[i];
-            i++;
-            k++;
-        }
-
-        while (j < rightArr.length) {
-            arr[k] = rightArr[j];
-            j++;
-            k++;
-        }
-    }
 
 
 }
