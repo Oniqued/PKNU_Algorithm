@@ -11,38 +11,43 @@ public class Test {
         int[] data;
         for (int i = 0; i < 3; i++) {
             data = new int[N];
-            for (int j = 0; j < N; j++) {
-                data[j] = (int)(Math.random()*20);
+            rand(data);
+            //System.out.println(Arrays.toString(data));
+            quickSort(data, 0, N-1);
+        }
+    }
+
+    private static void rand(int[] data) {
+        for (int i = 0; i < data.length; i++) {
+            data[i] = (int)(Math.random() * data.length);
+        }
+    }
+
+    private static void quickSort(int[] data, int left, int right) {
+        if (left < right) {
+            int pivotIndex = partition(data, left, right);
+            quickSort(data, left, pivotIndex-1);
+            quickSort(data, pivotIndex+1, right);
+        }
+    }
+
+    private static int partition(int[] data, int left, int right) {
+        int pivot = data[right];
+        int i = left-1;
+        for (int j = left; j < right; j++) {
+            if (data[j] < pivot) {
+                i++;
+                swap(data, i, j);
             }
-            mergeSort(data, 0, N-1);
-            System.out.println(Arrays.toString(data));
         }
+        swap(data, i + 1, right);
+        return i + 1;
     }
 
-    private static void mergeSort(int[] data, int p, int r){
-        int q = (p + r) / 2;
-        if (p < r) {
-            mergeSort(data, p, q);
-            mergeSort(data, q+1, r);
-            merge(data, p, q, r);
-        }
+    private static void swap(int[] data, int i, int j) {
+        int tmp = data[i];
+        data[i] = data[j];
+        data[j] = tmp;
     }
 
-    private static void merge(int[] data, int p, int q, int r){
-        int i = p, j = q+1, k = p;
-        int[] tmp = new int[data.length];
-        while(i <= q && j <= r){
-            if (data[i] <= data[j])
-                tmp[k++] = data[i++];
-            else
-                tmp[k++] = data[j++];
-        }
-        while(i <= q)
-            tmp[k++] = data[i++];
-        while (j <= r)
-            tmp[k++] = data[j++];
-        for (i = p; i <= r; i++) {
-            data[i] = tmp[i];
-        }
-    }
 }
