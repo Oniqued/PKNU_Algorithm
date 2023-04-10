@@ -3,7 +3,7 @@ package assignment05;
 import java.io.*;
 import java.util.*;
 
-public class Assignment0501 {
+public class Assignment0508 {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         StringTokenizer st;
