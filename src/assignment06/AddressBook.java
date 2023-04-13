@@ -1,12 +1,12 @@
 package assignment06;
 
 public class AddressBook {
-    String name;
-    String company;
-    String address;
-    String zip;
-    String phone;
-    String email;
+    private String name;
+    private String company;
+    private String address;
+    private String zip;
+    private String phone;
+    private String email;
 
     public String getName() {
         return name;
