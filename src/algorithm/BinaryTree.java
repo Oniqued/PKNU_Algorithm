@@ -94,4 +94,5 @@ public class BinaryTree {
         System.out.printf("%d ", node.key);
         leftInorderTraversal(node.right);
     }
+
 }
