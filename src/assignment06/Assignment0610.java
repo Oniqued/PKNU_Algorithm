@@ -129,7 +129,7 @@ public class Assignment0610 {
     // root에서부터 이름으로 대상을 검색한다. trace == true면, 대상으로 가는 방문 경로를 추적한다.
     private static Node findNode(Node node, String name, boolean trace) {
         if (node == null) {
-            System.out.printf("ERROR: '%s'를 찾을 수 없습니다.\n", name);
+            System.out.printf("ERROR: '%s'을(를) 찾을 수 없습니다.\n", name);
             return null;
         }
         if(node.user.getName().compareTo(name) > 0) {
@@ -163,17 +163,87 @@ public class Assignment0610 {
         user.setEmail(br.readLine());
 
         add(user);
+        System.out.printf("'%s'이(가) 추가 되었습니다.\n", name);
     }
 
+    // 노드 경로 추적
     private static void trace(String name) {
         findNode(root, name, true);
     }
 
+    // 노드 삭제
     private static void delete(String name) {
-
+        root = deleteNode(root, name);
     }
 
-    private static void save(String fileName) {
+    private static Node deleteNode(Node node, String name) {
+        if(node == null) {
+            System.out.printf("ERROR: '%s'을(를) 찾을 수 없습니다.\n", name);
+            return null;
+        }
+        // 트리를 순회하면서 삭제할 노드가 있는 위치를 찾음
+        if (node.user.getName().compareTo(name) > 0) {
+            node.left = deleteNode(node.left, name);
+        } else if (node.user.getName().compareTo(name) < 0) {
+            node.right = deleteNode(node.right, name);
+        }else if(node.user.getName().equals(name)){ // 삭제할 노드의 위치를 찾았음
+            if (node.left != null) { // 왼쪽 서브트리에서 자신과 바꿀 노드를 찾아야함(가장 큰 값)
+                Node child = findMaxNode(node.left);
+                swapData(node, child);
+                node.left = deleteNode(node.left, name);
+            } else if (node.right != null) {
+                Node child = findMinNode(node.right);
+                swapData(node, child);
+                node.right = deleteNode(node.right, name);
+            }else{
+                System.out.printf("'%s'이(가) 삭제되었습니다.\n", name);
+                return null;
+            }
+        }
+        return node;
+    }
 
+    // 트리에서 가장 큰 값을 가지는 노드 찾기
+    private static Node findMaxNode(Node node) {
+        if(node.right == null) return node;
+        return findMaxNode(node.right);
+    }
+
+    // 트리에서 가장 작은 값을 가지는 노드 찾기
+    private static Node findMinNode(Node node) {
+        if(node.left == null) return node;
+        return findMaxNode(node.left);
+    }
+
+    private static void swapData(Node node, Node child) {
+        AddressBook tmp = node.user;
+        node.user = child.user;
+        child.user = tmp;
+    }
+
+    private static void save(String fileName) throws IOException{
+        String fileDir = "src/assignment06/" + fileName;
+        BufferedWriter file = new BufferedWriter(new FileWriter(fileDir));
+        saveInorderTraversal(root, file);
+        file.close();
+        if (file != null) {
+            System.out.printf("'%s'파일이 성공적으로 저장되었습니다. (exit 호출시 파일이 보여집니다.)\n", fileName);
+        }else{
+            System.out.println("ERROR: 파일 저장 실패");
+        }
+    }
+
+    private static void saveInorderTraversal(Node node, BufferedWriter file) throws IOException {
+        if(node == null) return;
+        saveInorderTraversal(node.left, file);
+        file.write(
+                node.user.getName() + "\t"
+                + node.user.getCompany() + "\t"
+                + node.user.getAddress() + "\t"
+                + node.user.getZip() + "\t"
+                + node.user.getPhone() + "\t"
+                + node.user.getEmail() + "\n"
+        );
+        saveInorderTraversal(node.right, file);
     }
 }
