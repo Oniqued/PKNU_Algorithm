@@ -26,6 +26,8 @@ public class BinaryTree {
         bt.ascendingTraversal();
         bt.descendingTraversal();
         levelOrderTraversal();
+        System.out.println("arr is BST: " + isBST());
+        System.out.println("count of InternalNodes: " + getNodeCount(root));
     }
 
     public void add(int key) {
@@ -135,7 +137,7 @@ public class BinaryTree {
         System.out.println();
     }
 
-    private void leftInorderTraversal(Node node) {
+    private static void leftInorderTraversal(Node node) {
         //좌측 중위 순회
         if(node == null)
             return;
@@ -172,4 +174,80 @@ public class BinaryTree {
             }
         }
     }
+
+    public static boolean isBST() {
+        return isBSTRec(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private static boolean isBSTRec(Node node, int minValue, int maxValue) {
+        if (node == null) {
+            return true;
+        }
+
+        if (node.key < minValue || node.key > maxValue) {
+            return false;
+        }
+
+        return isBSTRec(node.left, minValue, node.key - 1) &&
+                isBSTRec(node.right, node.key + 1, maxValue);
+    }
+
+    public static int getNodeCount(Node root) {
+        int count = 0;
+
+        if(root != null)
+            count = 1 + getNodeCount(root.left) + getNodeCount(root.right);
+
+        return count;
+    }
 }
+
+/*
+8. (참고) 노드의 개수, 단말 노드의 개수, 높이 구하기
+1. 노드의 개수 구하기
+노드의 개수를 세기 위해서는 트리안의 노드들을 전체적으로 순회하여야 한다.
+
+각각의 서브트리에 대하여 순환 호출한 다음, 반환되는 값에 1을 더하여 반환한다.
+
+
+
+public static int getNodeCount(Node root) {
+	int count = 0;
+
+	if(root != null)
+		count = 1 + getNodeCount(root.left) + getNodeCount(root.right);
+
+	return count;
+}
+2. 단말 노드 개수 구하기
+단말 노드의 개수를 세기 위해서는 트리안의 노드들을 전체적으로 순회하여야 한다.
+
+순회하면서 만약 왼쪽 자식과 오른쪽 자식이 동시에 0이 되면 단말 노드이므로 1을 반환한다.
+
+만약 그렇지 않다면 비 단말 노드이므로 각각의 서브 트리에 대하여 순환 호출한 다음, 반환되는 값을 서로 더하면 된다.
+
+
+
+public static int getLeafCount(Node root) {
+	int count = 0;
+
+	if(root != null) {
+		if(root.left == null && root.right == null)
+			return 1;
+		else
+			count = getLeafCount(root.left) + getLeafCount(root.right);
+	}
+
+	return count;
+}
+3. 높이 구하기
+public static int getHeight(Node root) {
+	int height = 0;
+
+	if(root != null)
+		height = 1 + Math.max(getHeight(root.left), getHeight(root.right));
+
+	return height;
+}
+
+ */
