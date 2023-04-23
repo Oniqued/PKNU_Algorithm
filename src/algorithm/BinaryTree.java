@@ -1,5 +1,9 @@
 package algorithm;
 
+import javax.swing.tree.TreeNode;
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Node {
     Node left = null;
     Node right = null;
@@ -7,7 +11,7 @@ class Node {
 }
 
 public class BinaryTree {
-    Node root = null;
+    static Node root = null;
 
     public static void main(String[] args) {
         BinaryTree bt = new BinaryTree();
@@ -21,6 +25,7 @@ public class BinaryTree {
         bt.remove(14);
         bt.ascendingTraversal();
         bt.descendingTraversal();
+        levelOrderTraversal();
     }
 
     public void add(int key) {
@@ -139,4 +144,32 @@ public class BinaryTree {
         leftInorderTraversal(node.right);
     }
 
+    static private void levelOrderTraversal(){
+        System.out.println("Level-Order");
+        levelOrder(root);
+        System.out.println();
+    }
+
+    static private void levelOrder(Node node) {
+        if (node == null) {
+            System.out.println("Tree is empty");
+            return;
+        }
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(node);
+
+        while (!queue.isEmpty()) {
+            Node currentNode = queue.poll();
+                System.out.print(currentNode.key + " ");
+
+            if (currentNode.left != null) {
+                queue.add(currentNode.left);
+            }
+
+            if (currentNode.right != null) {
+                queue.add(currentNode.right);
+            }
+        }
+    }
 }
