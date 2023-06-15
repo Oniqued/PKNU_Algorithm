@@ -1,8 +1,8 @@
-package test;
+package exam.dynamic;
 
 import java.util.Scanner;
 
-public class Test {
+public class LCS {
 
     public static void main(String[] args) { // LCS ( 최장 공통 부분 수열)
         Scanner sc = new Scanner(System.in);
