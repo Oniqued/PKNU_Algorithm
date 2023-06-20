@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+// 강연결 성분 노드
+
 public class StrongCC {
     static int V, E;
     static List<List<Integer>> graph, reverseGraph, SCC;

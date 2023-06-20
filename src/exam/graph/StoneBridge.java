@@ -3,6 +3,8 @@ package exam.graph;
 import java.io.*;
 import java.util.*;
 
+// 연못에 징검다리 문제 (직사각혐)
+
 public class StoneBridge {
     static class Node {
         int x, y, w, h;

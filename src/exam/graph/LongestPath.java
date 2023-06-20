@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
+// 도시에 병원을 세웠을 때 그 병원으로부터 가장 멀리 떨어진 도시까지의 거리가 가장 짧아지는 도시는?
+
 class Graph {
     int V;
     List<Edge>[] adjList;

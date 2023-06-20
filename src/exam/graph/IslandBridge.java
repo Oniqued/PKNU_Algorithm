@@ -3,6 +3,8 @@ package exam.graph;
 import java.util.*;
 import java.io.*;
 
+// 임의의 두 섬에 대해서 두 섬의 중점간의 거리가 두 섬의 반지름의 합의 2배 이하일 경우 연결
+
 class IslandBridge {
     static class Island {
         int x, y, d;

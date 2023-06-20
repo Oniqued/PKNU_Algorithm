@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+// 인접리스트 구현 무방향 가중치 그래프 연결요소 가중치 합 최대
+
 class Graph1 {
     private int vertices;
     private List<List<Edge>> adjacencyList;

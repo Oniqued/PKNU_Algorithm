@@ -2,6 +2,8 @@ package exam.dynamic;
 
 import java.util.Scanner;
 
+// 두 문자열을 포함하는 가장 짧은 문자열과 그 길이를 구하기
+
 public class ShortestContainingString {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
